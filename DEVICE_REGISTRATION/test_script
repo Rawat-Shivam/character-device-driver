@@ -1,0 +1,82 @@
+#! /bin/bash
+
+echo -n1 -p "do you want to checkin RCS (y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	for file in $(ls *.h) $(ls *.c)
+	do
+		ci $file
+	done
+fi
+
+echo -n1 -p "do you want to checkout RCS (y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	for file in $(ls *.h,v) $(ls *.c,v)
+	do
+		co $file
+	done
+fi
+
+echo -n1 -p "do you want to make(y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	if (make)
+	then
+		echo "make successful"
+	else
+		echo "make failure"
+	fi
+fi
+
+registerDriver()
+{
+	 insmod ./modules/test_mod.ko nod=10
+	 read
+	 dmesg
+	 read
+	 cat /proc/devices
+	 read
+	 cat /proc/modules
+}
+
+removeDriver()
+{
+	 rmmod test_mod 
+	 read
+	 dmesg
+	 read
+	 cat /proc/devices
+	 read
+	 cat /proc/modules
+}
+
+echo -n1 -p "do you want to insert driver into KERNEL(y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	registerDriver
+fi
+
+echo -n1 -p "do you want to remove driver from KERNEL(y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	removeDriver
+fi
+
+
+echo -n1 -p "do you want to  LOCK_FILES  for Further DEVELOPMENT(y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	for file in $(ls *.h,v) $(ls *.c,v)
+	do
+		co -l $file
+	done
+fi
+
+

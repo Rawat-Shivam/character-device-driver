@@ -1,0 +1,3 @@
+/home/rawat/C_D_D/session_15_semaphore/DEVICE_REGISTRATION/test_mod.ko
+/home/rawat/C_D_D/session_15_semaphore/DEVICE_REGISTRATION/init.o /home/rawat/C_D_D/session_15_semaphore/DEVICE_REGISTRATION/cleanup.o /home/rawat/C_D_D/session_15_semaphore/DEVICE_REGISTRATION/releaseMyDev.o /home/rawat/C_D_D/session_15_semaphore/DEVICE_REGISTRATION/openMyDev.o /home/rawat/C_D_D/session_15_semaphore/DEVICE_REGISTRATION/trimDev.o /home/rawat/C_D_D/session_15_semaphore/DEVICE_REGISTRATION/writeMyDev.o /home/rawat/C_D_D/session_15_semaphore/DEVICE_REGISTRATION/readMyDev.o /home/rawat/C_D_D/session_15_semaphore/DEVICE_REGISTRATION/validIOCheck.o /home/rawat/C_D_D/session_15_semaphore/DEVICE_REGISTRATION/creatScull.o /home/rawat/C_D_D/session_15_semaphore/DEVICE_REGISTRATION/lseekDev.o
+

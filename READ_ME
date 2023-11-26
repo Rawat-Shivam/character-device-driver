@@ -1,0 +1,13 @@
+ upto session 12 we have only read write 
+but no lssek done 
+/////////////////////////////////////////////
+
+in session 13 we are doing lseek
+///////////////////////////////////////////
+ 
+and in session 14 we are doing implementation of l seek in read
+///////////////////////////////////////////////////
+
+and from 15 session we will apply semaphore on session 13 , because my session 14 is not working (lseek implement on read)
+
+similarlyin session 16  we will appply another semaphore on session 13.

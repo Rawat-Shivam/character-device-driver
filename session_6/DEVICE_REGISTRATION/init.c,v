@@ -1,0 +1,295 @@
+head	1.8;
+access;
+symbols;
+locks
+	rawat:1.8; strict;
+comment	@ * @;
+
+
+1.8
+date	2020.01.11.06.07.04;	author rawat;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2020.01.09.12.25.52;	author rawat;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2020.01.09.12.25.28;	author rawat;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2020.01.09.12.24.07;	author rawat;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2020.01.09.12.23.21;	author rawat;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2020.01.09.06.15.36;	author rawat;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2020.01.09.06.09.10;	author rawat;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2020.01.07.08.47.39;	author rawat;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.8
+log
+@*** empty log message ***
+@
+text
+@#include"headers.h"
+#include"declarations.h"
+#include"funOps.h"
+
+int dataSize,devSize,regSize,noOfReg;
+int major_No,minor_No,nod;
+int dev_no;
+dev_t device_id;
+Dev *dev;
+
+module_param(nod,int,S_IRUGO); 
+// module_param (name, type , permissions)
+// it is used to accept the arguments in the module  during run time(inserting)...
+// just like command like argument 
+// called module parameter
+//it will take the input from insmod and store in nod(extern_variable_int)
+
+
+static int __init start_func(void)
+{
+	printk(KERN_INFO "START: #%s #%s \n",__FILE__,__func__);
+	
+	int ret,i;
+
+	dataSize=DATASIZE;
+        devSize=DEVSIZE;
+        regSize=REGSIZE;
+        noOfReg=NOOFREG;	
+
+	minor_No=MINOR_NO;
+	//here the MINOR_NO macro constant 
+       	//assigned to minor_NO( extern int variable )
+
+	
+//	nod=NOD;
+	// earlier it was user defined macro (constant) but now we are taking as module_parameter
+
+	printk(KERN_INFO "hello KERNEL \n");
+	
+	ret=alloc_chrdev_region(&device_id,minor_No,nod,DEVICE_NAME);//
+	if(ret== -1)
+	{
+		 printk(KERN_ERR " alloc_chrdev_region() is failed \n");
+		 goto OUT;
+	}
+
+	major_No=MAJOR(device_id);
+	//MAJOR is a pre-kernel-defined macro
+	//MAJOR() gives major_number_of_device and we are assiging it to
+	//major_No (extern variable)
+	
+	printk(KERN_INFO " major_No= %d \n", major_No);
+	
+	dev=(Dev*)kmalloc(sizeof(Dev)*nod,GFP_KERNEL);
+	if(!dev)
+	{
+		 printk(KERN_ERR " kmalloc() is failed \n");
+		 goto OUT;
+	}
+	memset(dev,'\0',sizeof(Dev)*nod);
+
+	for(i=0 ; i < nod ; i++)
+	{
+		dev_no=MKDEV(major_No,i);
+		//MKDEV it returns the device_number/id 
+		//it combines both major_No and i(minor_number)
+		//and returns the device_id
+
+		minor_No=MINOR(dev_no);
+		// now we are extracting minor_number form MINOR pre-kernel-defined macro
+		//and assiging it to  minor_No(extern int variable)
+
+		printk(KERN_INFO " minor_No= %d \n", minor_No);
+      		
+		cdev_init(&dev[i].c_dev,&fops);
+
+		ret=cdev_add(&dev[i].c_dev,dev_no,1);		
+		if(ret==-1)
+		{
+			printk(KERN_ERR " cdev_add() is failed \n");
+		 	goto OUT;// it will go to OUT: label and return -1(ie.... exit)	
+		}
+
+		dev[i].dataSize=dataSize;
+		dev[i].devSize=devSize;
+		dev[i].regSize=regSize;
+		dev[i].noOfReg=noOfReg;
+	}
+	
+//	minor_No=MINOR(device_id);//was used eariler when we were registering only one  device
+//	but for multiple devices( nod ) we used above for loop and MKDEV() and then MINOR()
+
+
+//	printk(KERN_INFO " minor_No= %d \n", minor_No);
+
+/*	major_No =register_chrdev(0,"CDD__005",&fops); //static inline int register_chrdev();
+	if(major_No==-1)
+	{
+		 printk(KERN_ERR " register_chrdev() is failed \n");
+		 goto OUT;
+	}
+*/	
+	printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+	return 0;
+
+OUT:
+	{
+		printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+		return -1;
+	}
+
+}
+
+
+module_init(start_func);
+@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@d5 1
+d11 6
+a16 1
+module_param(nod,int,S_IRUGO); // module_param (name, type , permissions)
+d24 6
+d31 6
+a36 1
+	//nod=NOD;
+d40 1
+a40 1
+	ret=alloc_chrdev_region(&device_id,minor_No,nod,DEVICE_NAME);
+d46 1
+d48 4
+a56 1
+	
+d65 4
+d70 3
+d80 2
+a81 4
+			
+		 printk(KERN_ERR " cdev_add() is failed \n");
+		 goto OUT;
+			
+d83 5
+d90 5
+a94 2
+	minor_No=MINOR(device_id);
+	printk(KERN_INFO " minor_No= %d \n", minor_No);
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@d43 1
+a43 1
+		dev_no=MKDEV(major_N,i);
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d43 1
+a43 1
+		dev_no=MKDEV(major_NO,i);
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d10 1
+a10 1
+module_param(nod,int,S_IRUGO) // module_param (name, type , permissions)
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d6 1
+d8 4
+d17 1
+a17 1
+	int ret;
+d19 1
+a19 1
+	nod=NOD;
+d29 11
+d41 18
+a58 1
+	major_No=MAJOR(device_id);
+a59 2
+	
+	printk(KERN_INFO " major_No= %d \n", major_No);
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d25 1
+a25 1
+	major_NO=MAJOR(device_id);
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 4
+a6 1
+int major_No;
+d12 4
+d18 14
+a31 1
+	major_No =register_chrdev(0,"CDD__005",&fops); //static inline int register_chrdev();
+d37 1
+a37 1
+	
+@

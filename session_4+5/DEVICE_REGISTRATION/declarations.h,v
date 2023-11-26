@@ -1,0 +1,90 @@
+head	1.4;
+access;
+symbols;
+locks
+	rawat:1.4; strict;
+comment	@ * @;
+
+
+1.4
+date	2020.01.09.12.23.18;	author rawat;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2020.01.09.06.27.27;	author rawat;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2020.01.09.06.09.06;	author rawat;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2020.01.07.08.47.37;	author rawat;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@
+extern int major_No,minor_No,nod;
+extern int dev_no;
+extern dev_t device_id;
+
+typedef struct qset
+{
+	struct qset *next;
+	void **data;
+
+}Qset;
+
+typedef struct 
+{
+	struct qset *first;
+	struct cdev c_dev;
+}Dev;
+
+extern Dev *dev;
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d3 1
+a3 1
+extern int b,a;
+d5 15
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d3 1
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d2 2
+a3 1
+struct file_operations fops={};
+@

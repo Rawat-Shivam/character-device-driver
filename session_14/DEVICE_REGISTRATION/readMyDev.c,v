@@ -1,0 +1,1519 @@
+head	1.52;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.52
+date	2020.02.10.10.16.23;	author rawat;	state Exp;
+branches;
+next	1.51;
+
+1.51
+date	2020.02.10.09.16.24;	author rawat;	state Exp;
+branches;
+next	1.50;
+
+1.50
+date	2020.02.10.09.14.16;	author rawat;	state Exp;
+branches;
+next	1.49;
+
+1.49
+date	2020.02.10.09.06.35;	author rawat;	state Exp;
+branches;
+next	1.48;
+
+1.48
+date	2020.02.10.08.41.18;	author rawat;	state Exp;
+branches;
+next	1.47;
+
+1.47
+date	2020.02.10.08.31.13;	author rawat;	state Exp;
+branches;
+next	1.46;
+
+1.46
+date	2020.02.09.19.48.30;	author rawat;	state Exp;
+branches;
+next	1.45;
+
+1.45
+date	2020.02.09.18.58.29;	author rawat;	state Exp;
+branches;
+next	1.44;
+
+1.44
+date	2020.02.09.18.44.07;	author rawat;	state Exp;
+branches;
+next	1.43;
+
+1.43
+date	2020.02.09.07.53.43;	author rawat;	state Exp;
+branches;
+next	1.42;
+
+1.42
+date	2020.02.07.11.11.51;	author rawat;	state Exp;
+branches;
+next	1.41;
+
+1.41
+date	2020.02.07.10.32.57;	author rawat;	state Exp;
+branches;
+next	1.40;
+
+1.40
+date	2020.02.07.10.31.56;	author rawat;	state Exp;
+branches;
+next	1.39;
+
+1.39
+date	2020.02.07.10.29.51;	author rawat;	state Exp;
+branches;
+next	1.38;
+
+1.38
+date	2020.02.07.10.22.47;	author rawat;	state Exp;
+branches;
+next	1.37;
+
+1.37
+date	2020.02.07.10.14.09;	author rawat;	state Exp;
+branches;
+next	1.36;
+
+1.36
+date	2020.02.07.10.03.18;	author rawat;	state Exp;
+branches;
+next	1.35;
+
+1.35
+date	2020.02.07.09.45.39;	author rawat;	state Exp;
+branches;
+next	1.34;
+
+1.34
+date	2020.02.07.09.26.56;	author rawat;	state Exp;
+branches;
+next	1.33;
+
+1.33
+date	2020.02.07.09.20.16;	author rawat;	state Exp;
+branches;
+next	1.32;
+
+1.32
+date	2020.02.07.09.10.03;	author rawat;	state Exp;
+branches;
+next	1.31;
+
+1.31
+date	2020.02.07.09.02.39;	author rawat;	state Exp;
+branches;
+next	1.30;
+
+1.30
+date	2020.02.07.08.44.37;	author rawat;	state Exp;
+branches;
+next	1.29;
+
+1.29
+date	2020.02.07.07.29.57;	author rawat;	state Exp;
+branches;
+next	1.28;
+
+1.28
+date	2020.02.04.07.16.07;	author rawat;	state Exp;
+branches;
+next	1.27;
+
+1.27
+date	2020.02.03.15.03.57;	author rawat;	state Exp;
+branches;
+next	1.26;
+
+1.26
+date	2020.02.03.10.38.51;	author rawat;	state Exp;
+branches;
+next	1.25;
+
+1.25
+date	2020.02.03.10.36.34;	author rawat;	state Exp;
+branches;
+next	1.24;
+
+1.24
+date	2020.02.03.10.32.58;	author rawat;	state Exp;
+branches;
+next	1.23;
+
+1.23
+date	2020.02.03.10.30.14;	author rawat;	state Exp;
+branches;
+next	1.22;
+
+1.22
+date	2020.02.03.10.29.23;	author rawat;	state Exp;
+branches;
+next	1.21;
+
+1.21
+date	2020.02.03.10.23.06;	author rawat;	state Exp;
+branches;
+next	1.20;
+
+1.20
+date	2020.02.03.10.09.42;	author rawat;	state Exp;
+branches;
+next	1.19;
+
+1.19
+date	2020.02.03.10.02.01;	author rawat;	state Exp;
+branches;
+next	1.18;
+
+1.18
+date	2020.02.03.09.51.33;	author rawat;	state Exp;
+branches;
+next	1.17;
+
+1.17
+date	2020.02.03.09.29.05;	author rawat;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2020.02.03.08.29.11;	author rawat;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2020.01.31.07.17.15;	author rawat;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2020.01.31.06.53.33;	author rawat;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2020.01.30.07.37.25;	author rawat;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2020.01.30.06.58.41;	author rawat;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2020.01.30.04.38.42;	author rawat;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2020.01.28.16.28.57;	author rawat;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2020.01.28.16.07.13;	author rawat;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2020.01.28.12.41.55;	author rawat;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2020.01.28.12.34.37;	author rawat;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2020.01.28.12.28.15;	author rawat;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2020.01.28.07.51.07;	author rawat;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2020.01.28.07.46.09;	author rawat;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2020.01.27.12.25.15;	author rawat;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2020.01.27.11.31.24;	author rawat;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2020.01.20.08.51.24;	author rawat;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.52
+log
+@*** empty log message ***
+@
+text
+@#include"headers.h"
+#include"declarations.h"
+
+
+ssize_t readMyDev( struct file *file_localp, char __user *ubuff,size_t size,loff_t *lofset)
+{
+	size_t local_size = 0;
+	Dev *localDev = NULL ;
+	Qset *item = NULL ;
+	int i=0;     // looping variable
+	int ctr=0;      //no_of_char_to_read = 0;
+	int ur=0;        //no_of_unsuccess_read = 0;
+	int csr=0;      //no_of_char_successfully_read =0;
+	int wi=0;	// which item
+	int wq=0; 	//which quantum
+	int biq=0; 	//byte in quantum
+	printk(KERN_INFO "%s: BEGIN \n",__func__);
+
+
+	printk(KERN_INFO "FILE_POSITION = %d \n",(int)file_localp->f_pos);
+	printk(KERN_INFO "lofset = %d \n",*(int*)lofset);
+	printk(KERN_INFO "size (to read from read command) = %ld\n",size);
+
+	localDev=(Dev*)file_localp->private_data;
+	if(!localDev)
+	{
+		printk(KERN_ERR "ERROR: localDev  failure\n ");
+		return -1;
+	}
+
+	item = localDev->first;
+	if(validIOCheck( file_localp, ubuff, size))
+	{
+		if( size >localDev->dataSize )
+		{
+			local_size = ctr =localDev->dataSize - *lofset;
+			printk(KERN_INFO " inside valid io IF..... local_size = %ld   greater than data size\n",local_size);
+		}
+		else
+		{
+			local_size = ctr = size;
+			printk(KERN_INFO " ELSE valid io local_size = %ld  when less than data size\n",local_size);
+		}
+		wi=(*(int*)lofset)/(regSize*noOfReg);
+		printk(KERN_INFO " which item=%d \n",wi);
+		for(i=0;i<wi;i++)
+			item=item->next;
+
+		wq=(*(int*)lofset)/regSize;
+		if( wq > (noOfReg -1))
+			wq=wq-noOfReg;
+		printk(KERN_INFO " which quantum=%d \n",wq);
+
+		biq=(*(int*)lofset) % regSize;
+		printk(KERN_INFO " byte in quantum=%d \n",biq);
+
+		i=wq;			
+
+		printk(KERN_INFO " [i=%d] \n",i);
+
+		printk(KERN_INFO "going to while-----> > > \n");
+
+		while( local_size > 0 )
+		{	
+			printk(KERN_INFO " while received  local_size=%ld \n",local_size);
+
+			if(local_size > regSize )
+			{
+				ctr  = regSize-biq;
+				printk(KERN_INFO "char_to_read =%d equal regSize- biq(%d)\n",ctr,biq);
+			}
+			else
+			{
+				ctr = local_size;
+			}
+
+			printk(KERN_INFO " going -------------- COPY: \n");
+			ur = copy_to_user( (ubuff + csr) , item->data[i]+biq , ctr);
+			if(ur > 0)
+			{
+				printk(KERN_INFO " PARTIAL_READ \n");
+			}
+			printk(KERN_INFO " success read :  .......... read : %s\n", (ubuff+csr));
+
+			*lofset=  csr = csr + ( ctr - ur );
+			local_size = local_size - (ctr - ur );
+
+			printk(KERN_INFO " success read : %d \n",csr );
+
+			if(i == noOfReg -1)
+			{
+				item = item->next;
+				i=0;
+			}
+			else
+			{
+				i++;
+			}
+			biq=0;
+
+		}
+	}
+
+	file_localp->f_pos = *lofset;
+
+	printk(KERN_INFO "FILE_POSITION = %d \n",(int)file_localp->f_pos);
+	printk(KERN_INFO "lofset = %d \n",*(int*)lofset);
+
+	printk(KERN_INFO "%s: END \n",__func__);
+
+	return csr;
+
+}
+
+@
+
+
+1.51
+log
+@*** empty log message ***
+@
+text
+@d8 6
+a13 6
+        Dev *localDev = NULL ;
+       	Qset *item = NULL ;
+        int i=0;     // looping variable
+        int ctr=0;      //no_of_char_to_read = 0;
+        int ur=0;        //no_of_unsuccess_read = 0;
+        int csr=0;      //no_of_char_successfully_read =0;
+d19 1
+a19 1
+	
+d27 3
+a29 3
+        	printk(KERN_ERR "ERROR: localDev  failure\n ");
+                return -1;
+      	}
+d32 5
+a36 5
+        if(validIOCheck( file_localp, ubuff, size))
+        {
+                if( size >localDev->dataSize )
+                {
+                        local_size = ctr =localDev->dataSize - *lofset;
+d38 4
+a41 4
+                }
+                else
+                {
+                        local_size = ctr = size;
+d43 1
+a43 5
+                }
+	}
+	
+
+
+d53 1
+a53 1
+		
+d56 1
+a56 1
+	
+d60 5
+a64 5
+	
+	printk(KERN_INFO "going to while-----> > > \n");
+	
+	while( local_size > 0 )
+                {	
+d67 3
+a69 3
+                        if(local_size > regSize )
+                        {
+                                ctr  = regSize-biq;
+d71 6
+a76 6
+                        }
+                        else
+                        {
+                                ctr = local_size;
+                        }
+                	
+d79 20
+a98 20
+                        if(ur > 0)
+                        {
+                                printk(KERN_INFO " PARTIAL_READ \n");
+                        }
+                	printk(KERN_INFO " success read :  .......... read : %s\n", (ubuff+csr));
+
+                         csr = csr + ( ctr - ur );
+                        local_size = local_size - (ctr - ur );
+
+                        printk(KERN_INFO " success read : %d \n",csr );
+
+                        if(i == noOfReg -1)
+                        {
+                                item = item->next;
+                                i=0;
+                        }
+                        else
+                        {
+                                i++;
+                        }
+d102 1
+d109 1
+a109 1
+        printk(KERN_INFO "%s: END \n",__func__);
+d111 1
+a111 1
+return csr;
+@
+
+
+1.50
+log
+@*** empty log message ***
+@
+text
+@a81 1
+	return 777;
+@
+
+
+1.49
+log
+@*** empty log message ***
+@
+text
+@d34 1
+a34 1
+                if( (size + *(int*)lofset)  >= localDev->dataSize )
+d36 1
+a36 1
+                        local_size = ctr =localDev->dataSize - *(int*)lofset;
+@
+
+
+1.48
+log
+@*** empty log message ***
+@
+text
+@d82 1
+@
+
+
+1.47
+log
+@*** empty log message ***
+@
+text
+@a81 1
+		return 666;	
+@
+
+
+1.46
+log
+@*** empty log message ***
+@
+text
+@d53 3
+a55 2
+		wq=(*(int*)lofset)-(wi*regSize*noOfReg);
+		wq=wq/regSize;
+@
+
+
+1.45
+log
+@*** empty log message ***
+@
+text
+@d25 5
+d82 1
+a82 1
+			ur = copy_to_user( ubuff+csr , item->data[i]+biq , ctr);
+d103 1
+@
+
+
+1.44
+log
+@*** empty log message ***
+@
+text
+@d57 1
+d76 1
+a76 1
+			
+@
+
+
+1.43
+log
+@*** empty log message ***
+@
+text
+@d14 3
+d29 1
+a29 1
+                if( size  > localDev->dataSize )
+d31 2
+a32 2
+                        local_size = ctr =localDev->dataSize;
+			printk(KERN_INFO "local_size = %ld   greater than data size\n",local_size);
+d37 1
+a37 1
+			printk(KERN_INFO "local_size = %ld  when less than data size\n",local_size);
+d39 17
+d57 6
+a62 3
+		while( local_size > 0 )
+                {
+			printk(KERN_INFO "inner while local_size=%ld \n",local_size);
+d66 2
+a67 2
+                                ctr  = regSize;
+				printk(KERN_INFO "char_to_read =%d equal regSize\n",ctr);
+d76 1
+a76 1
+			ur = copy_to_user( ubuff+csr , item->data[i] , ctr);
+d98 1
+a98 2
+                }
+	}
+@
+
+
+1.42
+log
+@.]
+@
+text
+@d10 1
+a10 1
+        int i=0,j=0;     // looping variable
+a13 3
+       	int wi=0;	//which item
+	int wq=0;	 //which quantum
+	int biq=0;	// byte in quantum
+a25 8
+		// through argument, size = amount of data requested to read; 
+		// and dataSize is fixed ,which was written by the user 
+		// now we will change the char_to_read (if asked more than read till dataize )
+
+		// since, lofset say from where to read, 
+		// therefore by subtracting lofset from size .we will get how much to read; ( __ size - lofset __ )
+		// and we know from where to read  ( __ lofset __ )
+
+d28 1
+a28 1
+                        local_size = ctr =localDev->dataSize - *(int*)lofset;
+a36 41
+                        /////////////////////////////////////////////////////////////////////////////////////////////////
+                        // through arguments we have lofset = from where to read;
+                        // so we will move to that position denoted by lofset;
+
+                        // first we will find the item_no (that is the node in linklist)
+                        // lets find->  which item
+
+                        wi= (*(int*)lofset)/(noOfReg*regSize);  //positon divided by the item size gives us the item number
+                                                        // (divison by 32)
+
+			printk(KERN_INFO "which item (wi) = %d\n",wi);
+                        // here in looping we will use condition only less than 
+                        // because if we want to move only inside the first item than ....it will not enter in loop to move to next item
+                        // so if wi=0 (it means stay in the first item ...therefore )
+
+                        for( j=0 ; j < wi ; j++ )
+                        {
+				printk(KERN_INFO "item no. (for) j=%d\n",j);
+                                item=item->next;
+                        }
+
+                       // wq = (*(int*)lofset) - (wq*noOfReg*regSize);// u will get the position inside the item
+
+                        //wq = wq / (regSize);    // now we will get the quantum_no
+			printk(KERN_INFO "quantum number wq = %d\n",wq);
+                                                //(division by 4 )...since quantum is of 4 byte
+
+                        /*biq*/wq = (*(int*)lofset) % regSize;     // we will get the byte in the quantum
+                        
+			printk(KERN_INFO "particular byte inside 4byte of Q, biq=%d\n",biq);
+			i = *lofset/regSize ; // by doing this we will move to the quantum number
+                                 //and by  adding biq we will go the the specific byte in the quantum
+			if(i>(noOfReg-1))
+				i=i-noOfReg;
+			printk(KERN_INFO "i=%d=wq\n",i);
+	
+                        ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+d43 1
+a43 1
+                                ctr  = regSize - wq;
+d52 2
+a53 7
+                        if((item->data[i]+biq) == NULL)
+			{
+                                printk(KERN_INFO "chall hatt ....NULL hai tu \n");
+				return -1;
+			}	
+                                printk(KERN_INFO " copy_to_user( ubuff+csr , item->data[i]+biq , ctr);\n");
+			ur = copy_to_user( ubuff+csr , item->data[i]+biq , ctr);
+d60 1
+a60 1
+                        *lofset = csr = csr + ( ctr - ur );
+a73 7
+
+			// making zero so that after one looping they have no effect
+			 wi=0;       //which item
+		         wq=0;        //which quantum
+        		 biq=0;      // byte in quantum
+
+
+@
+
+
+1.41
+log
+@*** empty log message ***
+@
+text
+@d37 1
+a37 1
+                if( size  > (localDev->dataSize - *(int*)lofset) )
+d39 1
+a39 1
+                        local_size = ctr =localDev->dataSize;
+d69 1
+a69 1
+                        wq = (*(int*)lofset) % (noOfReg*regSize);// u will get the position inside the item
+d71 1
+a71 1
+                        wq = wq / (regSize);    // now we will get the quantum_no
+d75 1
+a75 1
+                        biq = wq % regSize;     // we will get the byte in the quantum
+d78 1
+a78 1
+			i = wq ; // by doing this we will move to the quantum number
+d80 2
+d95 1
+a95 10
+				// biq tells from where to read but 
+				// how much to read?
+				//
+				//and how much to read is stored in local_size
+                                ctr  = regSize - biq;
+				if(size < regSize )	
+				{
+					ctr = size;
+					printk(KERN_INFO "__INNER__char_to_read =%d equal regSize\n",ctr);
+				}
+d100 1
+a100 7
+                                ctr = local_size - biq;
+				if(size < regSize )	
+				{
+					ctr = size;
+					printk(KERN_INFO "__INNER__char_to_read =%d equal regSize\n",ctr);
+				}
+				printk(KERN_INFO "char_to_read =%d less than regSize,equal local size\n",ctr);
+@
+
+
+1.40
+log
+@*** empty log message ***
+@
+text
+@a122 1
+return 88;
+@
+
+
+1.39
+log
+@*** empty log message ***
+@
+text
+@d108 5
+@
+
+
+1.38
+log
+@*** empty log message ***
+@
+text
+@a96 1
+				
+d98 1
+a98 5
+				
+					// it will run only once
+							 // and if in case the request size to read is less than 4
+                              				// ie..to read 1 or 2 byte inside the quantum from 1 byte to 3 byte
+				if(biq)
+d100 3
+a102 4
+					ctr=size; // there fore char to read is = size(just 1 or 2 bytes inside the quatum)
+					printk(KERN_INFO "_INNER_ char_to_read =%d equal regSize\n",ctr);
+				}	
+					
+@
+
+
+1.37
+log
+@*** empty log message ***
+@
+text
+@d103 1
+a103 1
+				if(biq && (ctr>size))
+@
+
+
+1.36
+log
+@*** empty log message ***
+@
+text
+@d100 1
+a100 1
+				if(biq && (ctr>size))// it will run only once
+d102 2
+a103 1
+                                			// ie..to read 1 or 2 byte inside the quantum from 1 byte to 3 byte
+d106 1
+d124 1
+a124 1
+
+@
+
+
+1.35
+log
+@*** empty log message ***
+@
+text
+@d93 5
+d99 8
+@
+
+
+1.34
+log
+@*** empty log message ***
+@
+text
+@d98 1
+a98 1
+                                ctr = local_size;
+@
+
+
+1.33
+log
+@*** empty log message ***
+@
+text
+@a109 1
+return 666;
+@
+
+
+1.32
+log
+@*** empty log message ***
+@
+text
+@d22 1
+d37 1
+a37 1
+                if( size  > localDev->dataSize )
+d39 1
+a39 1
+                        local_size = ctr =localDev->dataSize - *(int*)lofset;
+d44 1
+a44 1
+                        local_size = ctr = size - *(int*)lofset;
+@
+
+
+1.31
+log
+@*** empty log message ***
+@
+text
+@d38 1
+a38 1
+                        local_size = ctr = dataSize - *(int*)lofset;
+@
+
+
+1.30
+log
+@*** empty log message ***
+@
+text
+@d107 3
+@
+
+
+1.29
+log
+@*** empty log message ***
+@
+text
+@d71 1
+a71 1
+			printk(KERN_INFO "quantum numbe wq=%d\n",wq);
+d77 1
+a77 1
+			i = wq-1 ; // by doing this we will move to the quantum number
+d97 1
+a97 1
+                                ctr = local_size - biq;
+a103 1
+
+@
+
+
+1.28
+log
+@*** empty log message ***
+@
+text
+@a22 1
+
+d38 1
+a38 1
+                        local_size = ctr = dataSize - *lofset;
+d43 1
+a43 1
+                        local_size = ctr = size ;
+d92 1
+a92 1
+                                ctr  = regSize - biq ;
+d97 1
+a97 1
+                                ctr = local_size;
+@
+
+
+1.27
+log
+@*** empty log message ***
+@
+text
+@d37 1
+a37 1
+                if( ( size + (*lofset)) > localDev->dataSize )
+d55 1
+a55 1
+                        wi= *lofset/(noOfReg*regSize);  //positon divided by the item size gives us the item number
+d69 1
+a69 1
+                        wq = *lofset % (noOfReg*regSize);// u will get the position inside the item
+d78 1
+a78 1
+			i = wq ; // by doing this we will move to the quantum number
+d93 1
+a93 1
+                                ctr  = regSize ;
+d101 2
+a102 36
+		/*******************************************************************************************************************	
+			/////////////////////////////////////////////////////////////////////////////////////////////////
+			// through arguments we have lofset = from where to read;
+			// so we will move to that position denoted by lofset;
+			
+			// first we will find the item_no (that is the node in linklist)
+			// lets find->  which item
+			
+			wi= *lofset/(noOfReg*regSize); 	//positon divided by the item size gives us the item number
+							// (divison by 32)
+			
+			// here in looping we will use condition only less than 
+			// because if we want to move only inside the first item than ....it will not enter in loop to move to next item
+			// so if wi=0 (it means stay in the first item ...therefore )
+			
+			for( j=0 ; j < wi ; j++ )
+			{
+				item=item->next;
+			}
+			
+			wq = *lofset % (noOfReg*regSize);// u will get the position inside the item
+			
+			wq = wq / (regSize);	// now we will get the quantum_no
+						//(division by 4 )...since quantum is of 4 byte
+
+			biq = wq % regSize; 	// we will get the byte in the quantum
+			
+			////////////////////////////////////////////////////////////////////////////////////////////////
+			
+			i = wq ; // by doing this we will move to the quantum number
+				 //and by  adding biq we will go the the specific byte in the quantum
+
+		***********************************************************************************************************************/
+/**/
+	
+                	printk(KERN_INFO " going -------------- COPY: \n");
+d109 1
+a109 2
+			ur = copy_to_user( (ubuff+csr) , item->data[i]+biq , ctr - biq);
+return 99;
+@
+
+
+1.26
+log
+@*** empty log message ***
+@
+text
+@d91 1
+a91 1
+                        if(local_size > regSize - biq )
+d93 1
+a93 1
+                                ctr  = regSize - biq;
+d137 1
+a137 1
+                        if(item->data[i] == NULL)
+d143 2
+a144 1
+			ur = copy_to_user( (ubuff+csr) , item->data[i]+biq , ctr);
+a150 1
+return 99;
+@
+
+
+1.25
+log
+@*** empty log message ***
+@
+text
+@a142 1
+return 99;
+d150 1
+@
+
+
+1.24
+log
+@*** empty log message ***
+@
+text
+@a86 1
+return 99;
+d143 1
+@
+
+
+1.23
+log
+@*** empty log message ***
+@
+text
+@a29 1
+return 99;
+d87 1
+@
+
+
+1.22
+log
+@*** empty log message ***
+@
+text
+@a25 1
+return 99;
+d30 1
+@
+
+
+1.21
+log
+@*** empty log message ***
+@
+text
+@a18 1
+return 99;
+a22 1
+return 99;
+d26 1
+@
+
+
+1.20
+log
+@*** empty log message ***
+@
+text
+@d8 2
+a9 2
+        Dev *localDev;
+       	Qset *item ;
+a16 1
+
+a17 4
+        
+	item = NULL;
+        localDev=NULL;
+      
+d19 1
+d24 1
+@
+
+
+1.19
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 2
+	printk(KERN_INFO "%s: BEGIN \n",__func__);
+/*	size_t local_size = 0;
+d42 1
+a42 1
+                if( size > localDev->dataSize )
+d49 1
+a49 1
+                        local_size = ctr = size - *lofset;
+d106 1
+a106 1
+		*//*******************************************************************************************************************	
+d140 1
+a140 1
+	/*
+d188 1
+a188 3
+*/
+        printk(KERN_INFO "%s: END \n",__func__);
+return 1;
+@
+
+
+1.18
+log
+@*** empty log message ***
+@
+text
+@d7 2
+a8 1
+	size_t local_size = 0;
+d107 1
+a107 1
+		/******************************************************************************************************************	
+d140 2
+a141 1
+
+d189 3
+a191 1
+
+@
+
+
+1.17
+log
+@*** empty log message ***
+@
+text
+@d5 1
+a5 1
+ssize_t readMyDev ( struct file *file_localp, char __user *ubuff,size_t size,loff_t *lofset)
+d96 1
+a96 1
+                        if(local_size > regSize )
+d98 1
+a98 1
+                                ctr  = regSize;
+d141 1
+a141 1
+                        if(item->data[i]+biq == NULL)
+@
+
+
+1.16
+log
+@*** empty log message ***
+@
+text
+@d9 1
+d18 3
+a20 2
+       	Qset *item ;
+        item = NULL;
+a23 1
+	printk(KERN_INFO "%s: BEGIN \n",__func__);
+@
+
+
+1.15
+log
+@*** empty log message ***
+@
+text
+@d44 1
+d49 1
+d62 1
+d69 1
+d76 1
+d81 1
+d84 2
+a85 1
+
+d93 1
+d98 1
+d103 1
+d140 6
+a145 1
+                        
+@
+
+
+1.14
+log
+@*** empty log message ***
+@
+text
+@d49 35
+a83 1
+                
+d95 1
+a95 1
+			
+d127 5
+a131 1
+                        ur = copy_to_user( (ubuff+csr) , item->data[i]+biq , ctr);
+@
+
+
+1.13
+log
+@*** empty log message ***
+@
+text
+@d9 1
+a9 1
+        int i=0 ,k=0, dumy_size=0 ,dumy_size2=0;
+d13 5
+a17 1
+        Qset *item ;
+a19 2
+	int *agey_chal;
+	agey_chal=NULL;
+d33 8
+d43 1
+a43 1
+                        local_size = ctr /*no_of_char_to_read*/ = dataSize;
+d47 1
+a47 40
+                        local_size = ctr /*no_of_char_to_read*/ = size;
+                }
+	/*******************************************/
+		// now going to the item from where to start reading
+		
+		dumy_size=((int)file_localp->f_pos)/32;
+		if(dumy_size == 0)
+		{
+			k =(((int)file_localp->f_pos) /4);
+			
+			dumy_size2= ((int)file_localp->f_pos) % 4;
+			if((dumy_size2>0) && (dumy_size2<4))
+			{
+				k=k+1;
+			}
+		}
+		else
+		{		
+			for(k=0;k<dumy_size;k++)
+			{
+				printk(KERN_INFO "______________ k= %d",k);
+				item=item->next;
+			}
+			dumy_size =((int)file_localp->f_pos) % 32;
+
+			k = dumy_size2=(dumy_size/4);
+			dumy_size2= dumy_size2 % 4;
+			if((dumy_size2>0) && (dumy_size2<4))
+			{
+				k=k+1;
+			}
+		}
+
+			agey_chal=&dumy_size2;
+
+		printk(KERN_INFO "copy to user going ONCE");
+                ur  = copy_to_user( (ubuff+csr) , (item->data[k]+ *agey_chal) , 4-dumy_size2 );
+                if(ur > 0)
+                {
+                	printk(KERN_INFO " PARTIAL_READ \n");
+d49 2
+a50 11
+                printk(KERN_INFO " success read :  ....11111...... read : %s\n", (ubuff+csr));
+
+                *lofset = csr/*no_of_char_successfully_read*/ =csr /* no_of_char_successfully_read*/ + ( dumy_size2 /*no_of_char_to_read*/ - ur /*no_of_unsuccess_read*/ );
+
+                local_size = local_size - (dumy_size2/*no_of_char_to_read*/ - ur /* no_of_unsuccess_read*/);
+
+                printk(KERN_INFO " success 1111 read : %d ",csr /* no_of_char_successfully_read*/);
+
+		i=k+1;
+
+                while( local_size > 0 )
+d55 1
+a55 1
+                                ctr /*no_of_char_to_read*/ = regSize;
+d59 26
+a84 1
+                                ctr /*no_of_char_to_read*/ = local_size;
+d86 6
+a91 1
+                        }
+d93 2
+a94 2
+                        ur = copy_to_user( (ubuff+csr) , item->data[i] , ctr /*no_of_char_to_read*/);
+                        if(ur /*no_of_unsuccess_read*/ > 0)
+d100 4
+a103 3
+                        *lofset = csr/*no_of_char_successfully_read*/ =csr /* no_of_char_successfully_read*/ + ( ctr /*no_of_char_to_read*/ - ur /*no_of_unsuccess_read*/ );
+                        local_size = local_size - (ctr /*no_of_char_to_read*/ - ur /* no_of_unsuccess_read*/);
+                        printk(KERN_INFO " success read : %d \n",csr /* no_of_char_successfully_read*/);
+a107 1
+
+d114 7
+@
+
+
+1.12
+log
+@*** empty log message ***
+@
+text
+@d16 2
+d70 2
+a71 1
+			
+d73 1
+a73 1
+                ur  = copy_to_user( (ubuff+csr) , item->data[k]+dumy_size2 , 4-dumy_size2 );
+@
+
+
+1.11
+log
+@*** empty log message ***
+@
+text
+@d41 1
+a41 1
+		for(k=0;k<dumy_size;k++)
+d43 7
+a49 2
+			printk(KERN_INFO "______________ k= %d",k);
+			item=item->next;
+d51 8
+a58 10
+		dumy_size=((int)file_localp->f_pos) % 32;
+
+		k = dumy_size2=(dumy_size/4);
+
+		dumy_size2= dumy_size2 % 4;
+		if((dumy_size2>0) && (dumy_size2<4))
+		{
+			k=k+1;
+			
+			printk(KERN_INFO "______________++ k= %d",k);
+d60 6
+a66 1
+		
+d69 2
+a70 2
+			printk(KERN_INFO "copy to user going ONCE");
+                ur  = copy_to_user( (ubuff+csr) ,item->data[k]+dumy_size2 , 4-dumy_size2 );
+@
+
+
+1.10
+log
+@*** empty log message ***
+@
+text
+@a57 1
+		item->data[k];
+d61 1
+@
+
+
+1.9
+log
+@*** empty log message ***
+@
+text
+@a16 1
+       	char *byt;
+a17 2
+
+	byt=NULL;
+a22 1
+	byt=(char*)kmalloc(sizeof(char)*regSize, GFP_KERNEL);
+d58 1
+a58 1
+		byt=item->data[k];
+d62 1
+a62 1
+                ur  = copy_to_user( (ubuff+csr) , &byt[dumy_size2] /*item->data[k]*/ , 4-dumy_size2 );
+d67 1
+a67 1
+                printk(KERN_INFO " success read :  .......... read : %s\n", (ubuff+csr));
+d73 1
+a73 1
+                printk(KERN_INFO " success read : %d ",csr /* no_of_char_successfully_read*/);
+@
+
+
+1.8
+log
+@*** empty log message ***
+@
+text
+@d16 5
+a20 1
+        
+d26 3
+a28 1
+        localDev=(Dev*)file_localp->private_data;
+d62 2
+a63 1
+		item->data[k];
+d66 1
+a66 1
+                ur  = copy_to_user( (ubuff+csr) , item->data[k] , 4-dumy_size2 );
+@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@d51 2
+a53 1
+			k=k+1;
+d64 1
+d70 1
+a70 1
+                printk(KERN_INFO " success read : %d \n",csr /* no_of_char_successfully_read*/);
+d92 1
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@d41 1
+d51 1
+d68 1
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d9 1
+a9 1
+        int i=0;
+d24 1
+d35 33
+a67 1
+	}
+a68 1
+                item = localDev->first;
+d82 1
+a82 1
+                        ur /*no_of_unsuccess_read*/ = copy_to_user( (ubuff+csr) , item->data[i] , ctr /*no_of_char_to_read*/);
+d104 1
+a104 1
+       
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d56 1
+a56 1
+                        csr/*no_of_char_successfully_read*/ =csr /* no_of_char_successfully_read*/ + ( ctr /*no_of_char_to_read*/ - ur /*no_of_unsuccess_read*/ );
+d73 2
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d18 3
+d74 2
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d31 1
+a31 2
+
+                }
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 69
+a75 2
+	printk(KERN_INFO "START: #%s #%s \n",__FILE__,__func__);
+	printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+a76 1
+return 0;
+@

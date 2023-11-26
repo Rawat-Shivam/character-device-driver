@@ -1,0 +1,52 @@
+#! /bin/bash
+
+
+registerDriver()
+{
+	insmod ./modules/test_mod.ko nod=10 regSize=4 noOfReg=8
+	read
+	dmesg
+	echo "enter  major_number"
+	read major_number
+	lsmod
+	cat /proc/devices
+       	read
+	cat /proc/modules
+}
+
+removeDriver()
+{
+	 rmmod test_mod 
+	 read 
+	 lsmod
+	 read
+	 unlink myDEV
+	 ls -al
+	 read
+	 dmesg 
+	 read
+	 cat /proc/devices
+	 read
+	 cat /proc/modules
+}
+
+
+echo -n1 -p "do you want to insert driver into KERNEL(y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	registerDriver
+fi
+
+				mknod myDEV  c $major_number 0
+				ls -al
+
+echo -n1 -p "do you want to remove driver from KERNEL(y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	removeDriver
+fi
+
+
+

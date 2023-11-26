@@ -1,0 +1,126 @@
+#! /bin/bash
+
+echo -n1 -p "do you want to checkin RCS (y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	for file in $(ls *.h) $(ls *.c)
+	do
+		ci $file
+	done
+fi
+
+echo -n1 -p "do you want to checkout RCS (y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	for file in $(ls *.h,v) $(ls *.c,v)
+	do
+		co $file
+	done
+fi
+
+echo -n1 -p "do you want to make(y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	if (make)
+	then
+		echo "make successful"
+	else
+		echo "make failure"
+	fi
+fi
+
+registerDriver()
+{
+	insmod ./modules/test_mod.ko nod=10 regSize=4 noOfReg=8
+	read
+	dmesg
+	read
+	echo "enter major_number" 
+	read major_number
+	#cat /proc/devices
+       	#read
+	#cat /proc/modules
+}
+
+removeDriver()
+{
+	 rmmod test_mod 
+	 read 
+	 # lsmod
+	 read
+	 unlink myDEV
+	 # ls -al
+	 read
+	 dmesg 
+	 read
+	 #cat /proc/devices
+	 #read
+	 #cat /proc/modules
+}
+
+testApplication()
+{
+	echo -n1 -p "do you want to make APPLICATION(y/n)"
+	read
+	if [ $REPLY = 'y' ]
+	then
+		if (make -C ./APPLICATION)
+		then
+			echo "make successful"
+			
+			echo -n1 -p "do you want run APP(y/n)"
+			read
+			if [ $REPLY = 'y' ]
+			then 
+				mv ./APPLICATION/APP .
+				read 
+				mknod myDEV  c $major_number 0
+				ls -al
+
+				./APP
+
+			else 
+				echo "run APP failed"
+			fi
+
+		else
+			echo "make failure"
+		fi
+	fi
+}
+
+echo -n1 -p "do you want to insert driver into KERNEL(y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	registerDriver
+fi
+
+echo -n1 -p "do you want to TEST your APPLICATION (y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	testApplication
+fi
+echo -n1 -p "do you want to remove driver from KERNEL(y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	removeDriver
+fi
+
+
+echo -n1 -p "do you want to  LOCK_FILES  for Further DEVELOPMENT(y/n)"
+read
+if [ $REPLY = 'y' ]
+then
+	for file in $(ls *.h,v) $(ls *.c,v)
+	do
+		co -l $file
+	done
+fi
+
+

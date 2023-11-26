@@ -1,0 +1,26 @@
+head	1.1;
+access;
+symbols;
+locks
+	rawat:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2020.01.09.06.10.29;	author rawat;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@
+struct file_operations fops={};
+@

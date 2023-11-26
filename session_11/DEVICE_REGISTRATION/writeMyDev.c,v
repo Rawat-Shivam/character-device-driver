@@ -1,0 +1,412 @@
+head	1.15;
+access;
+symbols;
+locks
+	rawat:1.15; strict;
+comment	@ * @;
+
+
+1.15
+date	2020.01.23.07.18.17;	author rawat;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2020.01.23.07.00.52;	author rawat;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2020.01.23.06.58.57;	author rawat;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2020.01.23.06.38.49;	author rawat;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2020.01.23.06.12.52;	author rawat;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2020.01.23.05.51.32;	author rawat;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2020.01.23.05.24.08;	author rawat;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2020.01.23.05.18.10;	author rawat;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2020.01.21.13.39.15;	author rawat;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2020.01.21.13.34.23;	author rawat;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2020.01.21.13.29.31;	author rawat;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2020.01.21.13.14.59;	author rawat;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2020.01.20.09.20.05;	author rawat;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2020.01.20.09.09.47;	author rawat;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2020.01.20.08.51.27;	author rawat;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.15
+log
+@*** empty log message ***
+@
+text
+@#include"headers.h"
+#include"declarations.h"
+
+
+ssize_t  writeMyDev (struct file *file_localp, const char __user *ubuff, size_t size, loff_t *lofset)
+{
+	size_t local_size = 0;
+
+	Dev *localDev;
+	int i=0;
+	int no_of_char_to_write = 0;
+	int no_of_unsuccess_char = 0;
+	int no_of_char_successfully_wrote =0;
+	Qset *item ;
+	item = NULL;
+	localDev=NULL;
+
+
+	printk(KERN_INFO "START: #%s #%s \n",__FILE__,__func__);
+
+	localDev=(Dev*)file_localp->private_data;
+
+	if(validIOCheck( file_localp, ubuff, size))
+	{
+		if( size > devSize )
+		{
+			local_size = no_of_char_to_write = devSize;
+		}
+		else
+		{
+			local_size = no_of_char_to_write = size;
+		}
+
+		localDev->first = creatScull(local_size);
+		if(localDev->first == NULL)
+		{
+			printk(KERN_ERR "ERROR: creatScull() failure\n ");
+                        goto OUT;
+		}
+		item = localDev->first;
+		
+		while( local_size > 0 )
+		{
+		
+			if(local_size > regSize )
+			{
+				no_of_char_to_write = regSize;
+			}
+			else
+			{
+				no_of_char_to_write = local_size;
+
+			}
+
+
+				printk(KERN_INFO " local_size: %ld \n",local_size);
+			
+			no_of_unsuccess_char = copy_from_user( item->data[i] , ubuff , no_of_char_to_write);
+			if(no_of_unsuccess_char > 0)
+			{
+				printk(KERN_INFO " PARTIAL_WRITE \n");
+			}
+			
+		
+			printk(KERN_INFO " likh liya : %s  \n",(char*)item->data[i]);
+			printk(KERN_INFO " unsuccess char : %d  \n", no_of_unsuccess_char);
+			
+			no_of_char_successfully_wrote = no_of_char_successfully_wrote + ( no_of_char_to_write - no_of_unsuccess_char );
+			local_size = local_size - (no_of_char_to_write - no_of_unsuccess_char);
+ 			ubuff+=no_of_char_successfully_wrote;
+			printk(KERN_INFO " success char : %d \n", no_of_char_successfully_wrote);
+			
+			if(i == noOfReg -1)
+			{
+				item = item->next;
+
+				i=0;
+			printk(KERN_INFO " IIIIIIIIIIIIIIIIIIIIIII  \n");
+			}
+			else
+			{
+				i++;
+			printk(KERN_INFO "iiiiiiiiiiiiiiiiiiii: i=%d \n",i);
+			}
+		
+		}
+	}
+	
+	printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+
+return  no_of_char_successfully_wrote;
+
+OUT:
+        {
+                printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+                return -1;
+        }
+}
+
+@
+
+
+1.14
+log
+@*** empty log message ***
+@
+text
+@d70 1
+a70 1
+
+@
+
+
+1.13
+log
+@*** empty log message ***
+@
+text
+@d65 1
+a65 1
+			printk(KERN_INFO " likh liya : %s  \n",*(char*)item->data[i]);
+@
+
+
+1.12
+log
+@*** empty log message ***
+@
+text
+@d65 1
+@
+
+
+1.11
+log
+@*** empty log message ***
+@
+text
+@d56 1
+a56 1
+				printk(KERN_INFO " local_size: %ld  i=%d \n",local_size,i);
+d65 1
+a65 1
+			printk(KERN_INFO " unsuccess char : %d  i=%d \n", no_of_unsuccess_char,i);
+d68 1
+a68 1
+			local_size = local_size - no_of_char_successfully_wrote;
+d70 1
+a70 1
+			printk(KERN_INFO " success char : %d i=%d \n", no_of_char_successfully_wrote,i);
+@
+
+
+1.10
+log
+@*** empty log message ***
+@
+text
+@a22 1
+	local_size = size ;
+d25 1
+a25 1
+		if(local_size > devSize )
+a39 1
+
+d55 3
+a57 1
+			printk(KERN_INFO " going to copy form user \n");
+d63 5
+a67 1
+			no_of_char_successfully_wrote = no_of_char_successfully_wrote + ( regSize - no_of_unsuccess_char );
+d70 2
+d75 1
+d77 1
+d80 1
+d82 2
+a83 1
+
+@
+
+
+1.9
+log
+@*** empty log message ***
+@
+text
+@d35 1
+a35 1
+		localDev->first=creatScull(local_size);
+d57 1
+@
+
+
+1.8
+log
+@*** empty log message ***
+@
+text
+@d10 4
+a13 2
+	localDev=NULL;
+	int i ,  no_of_char_to_write = 0, no_of_unsuccess_char = 0 ,no_of_char_successfully_wrote =0 ;
+d16 1
+a43 1
+		i=0;	
+@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@d10 1
+d12 2
+a13 1
+	Qset *item = NULL;
+a14 1
+	localDev=(Dev*)file_localp->private_data;
+d18 1
+a18 1
+	localDev=NULL;
+d23 8
+a30 3
+		if(size > devSize )
+			local_size= no_of_char_to_write = devSize;
+
+d35 1
+a35 1
+			printk(KERN_ERR "ERROR: trimDev() failure\n ");
+d38 1
+a44 1
+				printk(KERN_INFO " PARTIAL_WRITE ---------1  \n");
+a53 1
+				printk(KERN_INFO " PARTIAL_WRITE-------------2 \n");
+a62 1
+				printk(KERN_INFO " PARTIAL_WRITE-------------3\n");
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@d38 1
+d48 1
+d58 1
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@a7 1
+	local_size = size ;
+d9 1
+a9 1
+	Dev *localDev=NULL;
+d17 3
+d35 1
+a35 1
+		while( local_size >0 )
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d8 1
+d35 12
+a46 1
+			no_of_unsuccess_char = copy_from_user( item->data[i] , ubuff , regSize );
+a50 1
+			local_size = local_size - (regSize - no_of_unsuccess_char);
+d52 1
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d7 2
+d10 3
+d19 5
+a23 2
+	
+		localDev->first=creatScull(size);
+d29 23
+d55 2
+a56 1
+return size;
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d24 1
+a24 1
+return 0;
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d8 1
+@

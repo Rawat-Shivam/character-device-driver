@@ -1,0 +1,36 @@
+head	1.1;
+access;
+symbols;
+locks
+	rawat:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2020.01.20.08.51.25;	author rawat;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"headers.h"
+#include"declarations.h"
+
+
+int trimDev(Dev *localDev )
+{
+	printk(KERN_INFO "START: #%s #%s \n",__FILE__,__func__);
+	printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+
+return 0;
+}
+
+@

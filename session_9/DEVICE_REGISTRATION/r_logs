@@ -1,0 +1,7 @@
+#! /bin/bash
+
+name=`date +%d%m%y`
+for file in $(ls *.h,v) $(ls *.c,v)
+do
+	rlog $file >> log$name
+done

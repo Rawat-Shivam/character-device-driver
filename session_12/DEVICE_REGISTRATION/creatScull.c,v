@@ -1,0 +1,389 @@
+head	1.13;
+access;
+symbols;
+locks
+	rawat:1.13; strict;
+comment	@ * @;
+
+
+1.13
+date	2020.01.27.12.50.07;	author rawat;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2020.01.27.11.41.09;	author rawat;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2020.01.27.11.31.22;	author rawat;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2020.01.23.07.06.26;	author rawat;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2020.01.23.05.51.30;	author rawat;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2020.01.23.05.35.32;	author rawat;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2020.01.23.05.27.05;	author rawat;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2020.01.23.05.18.09;	author rawat;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2020.01.21.13.43.01;	author rawat;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2020.01.21.13.14.57;	author rawat;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2020.01.20.09.20.04;	author rawat;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2020.01.20.09.15.13;	author rawat;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2020.01.20.08.51.21;	author rawat;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.13
+log
+@*** empty log message ***
+@
+text
+@#include"headers.h"
+#include"declarations.h"
+
+/**************************************************************************
+ 
+do not use them since exterm is already defined/intialized in init.c
+
+	extern int major_No,minor_No,nod;
+	extern dev_t device_id,dev_no;
+	
+	extern int dataSize,devSize,regSize,noOfReg;
+
+
+**************************************************************************/
+
+Qset*  creatScull ( size_t size)
+{
+	int no_of_items=0;
+
+	int no_of_quantums=0;
+	int i=0,l=0;
+	
+	Qset *first;
+	Qset *last;
+	first=last=NULL;
+
+	printk(KERN_INFO "%s: BEGIN \n",__func__);
+
+	
+	first=last=(Qset*)kmalloc(sizeof(Qset),GFP_KERNEL);
+	if(!first)
+	{
+		printk(KERN_ERR "kmalloc() failed \n");
+		goto OUT;
+	}
+	memset(first ,'\0' ,sizeof(Qset));
+/**************************************************************************/
+	
+	no_of_items= (size/( noOfReg * regSize ));
+	if(size % (noOfReg * regSize))
+		no_of_items++;
+
+	printk(KERN_INFO " NO.OF ITEMS %d\n",no_of_items);
+	
+	for( i=0 ; i< (no_of_items -1) ; i++ )
+	{
+		last->next=(Qset*)kmalloc(sizeof(Qset),GFP_KERNEL); 
+		if(!last->next)
+		{
+                	printk(KERN_ERR "kmalloc() failed \n");
+                	goto OUT;
+        	}
+		memset(last->next,'\0',sizeof(Qset));
+
+		last=last->next;
+		last->next=NULL;
+		last->data=NULL;
+	}
+/**************************************************************************/
+	last=first;
+/**************************************************************************/
+
+	for(i=0 ; i < no_of_items ; i++ )
+	{
+		last->data=kmalloc((sizeof(char*)*noOfReg),GFP_KERNEL);
+		if(!last->data)
+                {
+                        printk(KERN_ERR "kmalloc() failed \n");
+                        goto OUT;
+                }
+		memset(last->data , '\0', (sizeof(char*)*noOfReg) );
+		last=last->next;
+	}
+	
+/**************************************************************************/
+	no_of_quantums=size/regSize;
+	if(size % regSize )
+		no_of_quantums++;
+
+/**************************************************************************/
+	last=first;
+/**************************************************************************/
+	for(l=0 , i=0 ; l < no_of_quantums ; l++)
+	{
+				printk(KERN_INFO " iteration no :%d >> no_of_quantums loop loop loop -------- 1  \n",l);
+	
+		last->data[i]=kmalloc((sizeof(char)*regSize),GFP_KERNEL);
+		if(!last->data[i])
+                {
+                        printk(KERN_ERR "kmalloc() failed \n");
+                        goto OUT;
+                }
+		memset(last->data[i],'\0',(sizeof(char)*regSize));
+		
+		if(i == noOfReg -1)
+		{
+			i=0;
+			last=last->next;
+		}
+		else
+		{
+			i++;
+		}
+	}
+/**************************************************************************/
+	
+				printk(KERN_INFO " after >> no_of_quantums loop loop loop -------- 1 %d  \n", no_of_quantums);
+
+	printk(KERN_INFO "%s: END \n",__func__);
+return first;
+
+
+OUT:
+printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+return (Qset*)(-1);
+
+}
+
+@
+
+
+1.12
+log
+@*** empty log message ***
+@
+text
+@d36 1
+d53 1
+d93 1
+a93 1
+		memset(last->data[i],'\0',4);
+d112 1
+d114 3
+a116 4
+        {
+                printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+                return (Qset*)(-1);
+        }
+@
+
+
+1.11
+log
+@*** empty log message ***
+@
+text
+@d69 1
+@
+
+
+1.10
+log
+@*** empty log message ***
+@
+text
+@d27 1
+a28 1
+	printk(KERN_INFO "START: #%s #%s \n",__FILE__,__func__);
+d106 1
+a106 1
+	printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+@
+
+
+1.9
+log
+@*** empty log message ***
+@
+text
+@d90 1
+a90 1
+
+@
+
+
+1.8
+log
+@*** empty log message ***
+@
+text
+@d18 3
+a20 1
+	int no_of_items=0,no_of_quantums=0;
+d23 4
+a26 1
+	Qset *first=NULL , *last=NULL;
+a45 1
+				printk(KERN_INFO " no_of_item loop loop loop -------- 1  \n");
+a62 1
+				printk(KERN_INFO " no_of_item loop loop loop -------- 2  \n");
+a79 1
+				printk(KERN_INFO " before >> no_of_quantums loop loop loop -------- 1 %d  \n", no_of_quantums);
+@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@d80 1
+a80 1
+				printk(KERN_INFO " no_of_quantums loop loop loop -------- 1  \n");
+d102 1
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@d77 1
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d18 2
+a19 2
+	int no_of_items,no_of_quantums;
+	int i,l;
+d24 1
+d32 1
+d34 3
+d39 1
+a39 1
+	for( i=0; i< no_of_items -1; i++ )
+d41 2
+a42 1
+		last->next=(Qset*)kmalloc(sizeof(Qset),GFP_KERNEL);
+a48 1
+				printk(KERN_INFO " PARTIAL_WRITE ---------4  \n");
+d59 1
+a59 1
+				printk(KERN_INFO " PARTIAL_WRITE ---------3  \n");
+d77 1
+a77 1
+	for(l=0 , i=0 ; l <no_of_quantums ; l++)
+d79 1
+a80 1
+				printk(KERN_INFO " PARTIAL_WRITE ---------2  \n");
+d88 1
+d95 1
+d97 1
+a97 1
+	
+a100 1
+				printk(KERN_INFO " PARTIAL_WRITE ---------1  \n");
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d42 2
+d54 1
+d75 1
+d94 1
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d18 3
+a22 2
+	int no_of_item,i;
+
+d30 5
+a34 4
+
+	no_of_item= (size/( noOfReg * regSize ));
+	printk(KERN_INFO " NO.OF ITEMS %d\n",no_of_item);
+	for( i=0; i< no_of_item -1; i++ )
+d45 20
+d66 21
+d88 2
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d30 1
+a30 1
+	no_of_item= size/(noOfReg*regSize);
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d31 1
+@

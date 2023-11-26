@@ -1,0 +1,221 @@
+head	1.8;
+access;
+symbols;
+locks
+	rawat:1.8; strict;
+comment	@ * @;
+
+
+1.8
+date	2020.02.11.07.21.57;	author rawat;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2020.01.27.12.50.08;	author rawat;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2020.01.27.11.31.23;	author rawat;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2020.01.21.13.14.58;	author rawat;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2020.01.20.08.58.59;	author rawat;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2020.01.20.08.51.23;	author rawat;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2020.01.11.07.06.39;	author rawat;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2020.01.11.06.07.05;	author rawat;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.8
+log
+@*** empty log message ***
+@
+text
+@#include"headers.h"
+#include"declarations.h"
+
+
+int openMyDev (struct inode *inode_p, struct file *file_p)
+{
+	int ret;
+	Dev *localDev;
+	// this localDev will store the adderess  of user defined structure Dev (inside declerarion.h)
+	// returned by container_of
+	// and this pointer can address the // IO_space / KERNEL_space / USER_space //
+	
+	printk(KERN_INFO "%s: BEGIN\n",__func__);
+	
+	
+
+/*************************** container_of *********************
+ * - cast a member of a structure out to the containing structure
+ *
+ * @@ptr:        the pointer to the member in the struct
+ * @@type:       the type of the container struct this is embedded in
+ * 		 (it is the data type ,the structure itself whose address will it return)
+ * @@member:     the name of the member within the struct.
+ *
+ * **************************************************************/
+	
+/************************************************************************
+ 
+        #define container_of(ptr, type, member) ({                              \
+        void *__mptr = (void *)(ptr);                                   \
+        BUILD_BUG_ON_MSG(!__same_type(*(ptr), ((type *)0)->member) &&   \
+                         !__same_type(*(ptr), void),                    \
+                         "pointer type mismatch in container_of()");    \
+        ((type *)(__mptr - offsetof(type, member))); })
+
+* ***********************************************************************/
+	localDev = container_of(inode_p->i_cdev, Dev, c_dev);
+	if(!localDev)
+	{
+		printk(KERN_ERR "container_of is failed \n");
+		goto OUT;
+	}
+
+
+	file_p->private_data=(void*)localDev;
+
+// inode_p is user created pointer to the kernel structure inode . now this pointer will point to the member of kernel struct inode
+/********************* Remember***************************************
+ * 
+ * struct file {};
+ * is a structure in fs.h
+ * inside it there is a void pointer named private_data
+	
+ 	void                    *private_data;
+
+ * ******************************************************************/
+
+	if((file_p->f_flags & O_ACCMODE)== O_WRONLY)
+	{
+			
+		ret=trimDev(localDev);
+		if(ret==-1)
+		{
+			printk(KERN_ERR "ERROR: trimDev() failure in open() \n ");
+			goto OUT;
+		}
+	}
+
+	
+	printk(KERN_INFO "%s: END \n",__func__);
+
+return 0;
+
+
+OUT:
+        {
+                printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+                return -1;
+        }
+
+}
+
+@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@d60 1
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@d63 1
+a63 1
+			printk(KERN_ERR "ERROR: trimDev() failure\n ");
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d13 1
+a13 1
+	printk(KERN_INFO "START: #%s #%s \n",__FILE__,__func__);
+d69 1
+a69 1
+	printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@a37 1
+
+d44 1
+d46 1
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d68 3
+a78 3
+	printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+
+return 0;
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d7 6
+d14 62
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d5 1
+a5 1
+int openMyDev (struct inode *inode_p, struct file *file_p);
+@

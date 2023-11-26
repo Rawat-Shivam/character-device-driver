@@ -1,0 +1,570 @@
+head	1.20;
+access;
+symbols;
+locks
+	rawat:1.20; strict;
+comment	@ * @;
+
+
+1.20
+date	2020.02.11.11.23.01;	author rawat;	state Exp;
+branches;
+next	1.19;
+
+1.19
+date	2020.02.11.11.16.14;	author rawat;	state Exp;
+branches;
+next	1.18;
+
+1.18
+date	2020.02.11.11.08.39;	author rawat;	state Exp;
+branches;
+next	1.17;
+
+1.17
+date	2020.02.11.10.59.36;	author rawat;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2020.02.11.10.40.05;	author rawat;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2020.02.11.07.21.58;	author rawat;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2020.02.09.15.59.38;	author rawat;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2020.01.30.07.37.25;	author rawat;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2020.01.30.06.58.41;	author rawat;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2020.01.30.04.38.42;	author rawat;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2020.01.28.16.28.57;	author rawat;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2020.01.28.16.07.13;	author rawat;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2020.01.28.12.41.55;	author rawat;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2020.01.28.12.34.37;	author rawat;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2020.01.28.12.28.15;	author rawat;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2020.01.28.07.51.07;	author rawat;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2020.01.28.07.46.09;	author rawat;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2020.01.27.12.25.15;	author rawat;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2020.01.27.11.31.24;	author rawat;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2020.01.20.08.51.24;	author rawat;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.20
+log
+@*** empty log message ***
+@
+text
+@#include"headers.h"
+#include"declarations.h"
+
+
+ssize_t readMyDev ( struct file *file_localp, char __user *ubuff,size_t size,loff_t *lofset)
+{
+	size_t local_size = 0;
+        Dev *localDev;
+        int i=0 ;
+        int ctr=0;      //no_of_char_to_read = 0;
+        int ur=0;        //no_of_unsuccess_read = 0;
+        int csr=0;      //no_of_char_successfully_read =0;
+        Qset *item ;
+        item = NULL;
+        localDev=NULL;
+      
+
+	printk(KERN_INFO "%s: BEGIN \n",__func__);
+	localDev=(Dev*)file_localp->private_data;
+		
+		printk(KERN_INFO "%s: before  semaphore---------------- \n",__func__);
+	if(down_interruptible(&localDev->sem))
+	{
+		return -ERESTARTSYS;
+	}
+		printk(KERN_INFO "%s: after  semaphore---------------- \n",__func__);
+	
+	
+	printk(KERN_INFO "FILE_POSITION = %d \n",(int)file_localp->f_pos);
+	printk(KERN_INFO "lofset = %d \n",*(int*)lofset);
+
+	//localDev=(Dev*)file_localp->private_data;
+
+	item = localDev->first;
+        if(validIOCheck( file_localp, ubuff, size))
+        {
+                if( size > localDev->dataSize )
+                {
+                        local_size = ctr /*no_of_char_to_read*/ = dataSize;
+                }
+                else
+                {
+                        local_size = ctr /*no_of_char_to_read*/ = size;
+                }
+                
+		while( local_size > 0 )
+                {
+			printk(KERN_INFO "%s: INSIDE while   -----  after  semaphore---------------- \n",__func__);
+
+                        if(local_size > regSize )
+                        {
+                                ctr /*no_of_char_to_read*/ = regSize;
+                        }
+                        else
+                        {
+                                ctr /*no_of_char_to_read*/ = local_size;
+
+                        }
+			
+			if(item==NULL || item->data[i]==NULL  )
+			{
+				return -1;
+			}
+                        ur = copy_to_user( (ubuff+csr) , item->data[i] , ctr /*no_of_char_to_read*/);
+                        if(ur /*no_of_unsuccess_read*/ > 0)
+                        {
+                                printk(KERN_INFO " PARTIAL_READ \n");
+                        }
+                	//printk(KERN_INFO " success read :  .......... read : %s\n", (ubuff+csr));
+
+                        *lofset = csr/*no_of_char_successfully_read*/ =csr /* no_of_char_successfully_read*/ + ( ctr /*no_of_char_to_read*/ - ur /*no_of_unsuccess_read*/ );
+                        local_size = local_size - (ctr /*no_of_char_to_read*/ - ur /* no_of_unsuccess_read*/);
+                        printk(KERN_INFO " success read : %d \n",csr /* no_of_char_successfully_read*/);
+
+                        if(i == noOfReg -1)
+                        {
+                                item = item->next;
+
+                                i=0;
+                        }
+                        else
+                        {
+                                i++;
+                        }
+
+                }
+	}
+
+	file_localp->f_pos = *lofset;
+	
+		printk(KERN_INFO "%s: before releasing  semaphore---------------- \n",__func__);
+	up(&localDev->sem);
+		printk(KERN_INFO "%s: after releasing  semaphore---------------- \n",__func__);
+
+	printk(KERN_INFO "FILE_POSITION = %d \n",(int)file_localp->f_pos);
+	printk(KERN_INFO "lofset = %d \n",*(int*)lofset);
+
+        printk(KERN_INFO "%s: END \n",__func__);
+
+return csr;
+
+}
+
+@
+
+
+1.19
+log
+@*** empty log message ***
+@
+text
+@d19 1
+d32 1
+a32 1
+	localDev=(Dev*)file_localp->private_data;
+@
+
+
+1.18
+log
+@*** empty log message ***
+@
+text
+@d19 1
+a19 4
+	
+	printk(KERN_INFO "FILE_POSITION = %d \n",(int)file_localp->f_pos);
+	printk(KERN_INFO "lofset = %d \n",*(int*)lofset);
+
+a20 1
+	
+d27 4
+@
+
+
+1.17
+log
+@*** empty log message ***
+@
+text
+@d47 1
+@
+
+
+1.16
+log
+@*** empty log message ***
+@
+text
+@d57 5
+a61 1
+
+@
+
+
+1.15
+log
+@*** empty log message ***
+@
+text
+@d23 2
+d26 1
+d28 3
+a30 1
+
+d63 1
+a63 1
+                	printk(KERN_INFO " success read :  .......... read : %s\n", (ubuff+csr));
+d85 1
+d87 1
+@
+
+
+1.14
+log
+@*** empty log message ***
+@
+text
+@d23 2
+d79 2
+@
+
+
+1.13
+log
+@*** empty log message ***
+@
+text
+@d9 1
+a9 1
+        int i=0 ,k=0, dumy_size=0 ,dumy_size2=0;
+a15 2
+	int *agey_chal;
+	agey_chal=NULL;
+d37 2
+a38 50
+	/*******************************************/
+		// now going to the item from where to start reading
+		
+		dumy_size=((int)file_localp->f_pos)/32;
+		if(dumy_size == 0)
+		{
+			k =(((int)file_localp->f_pos) /4);
+			
+			dumy_size2= ((int)file_localp->f_pos) % 4;
+			if((dumy_size2>0) && (dumy_size2<4))
+			{
+				k=k+1;
+			}
+		}
+		else
+		{		
+			for(k=0;k<dumy_size;k++)
+			{
+				printk(KERN_INFO "______________ k= %d",k);
+				item=item->next;
+			}
+			dumy_size =((int)file_localp->f_pos) % 32;
+
+			k = dumy_size2=(dumy_size/4);
+			dumy_size2= dumy_size2 % 4;
+			if((dumy_size2>0) && (dumy_size2<4))
+			{
+				k=k+1;
+			}
+		}
+
+			agey_chal=&dumy_size2;
+
+		printk(KERN_INFO "copy to user going ONCE");
+                ur  = copy_to_user( (ubuff+csr) , (item->data[k]+ *agey_chal) , 4-dumy_size2 );
+                if(ur > 0)
+                {
+                	printk(KERN_INFO " PARTIAL_READ \n");
+                }
+                printk(KERN_INFO " success read :  ....11111...... read : %s\n", (ubuff+csr));
+
+                *lofset = csr/*no_of_char_successfully_read*/ =csr /* no_of_char_successfully_read*/ + ( dumy_size2 /*no_of_char_to_read*/ - ur /*no_of_unsuccess_read*/ );
+
+                local_size = local_size - (dumy_size2/*no_of_char_to_read*/ - ur /* no_of_unsuccess_read*/);
+
+                printk(KERN_INFO " success 1111 read : %d ",csr /* no_of_char_successfully_read*/);
+
+		i=k+1;
+
+                while( local_size > 0 )
+@
+
+
+1.12
+log
+@*** empty log message ***
+@
+text
+@d16 2
+d70 2
+a71 1
+			
+d73 1
+a73 1
+                ur  = copy_to_user( (ubuff+csr) , item->data[k]+dumy_size2 , 4-dumy_size2 );
+@
+
+
+1.11
+log
+@*** empty log message ***
+@
+text
+@d41 1
+a41 1
+		for(k=0;k<dumy_size;k++)
+d43 7
+a49 2
+			printk(KERN_INFO "______________ k= %d",k);
+			item=item->next;
+d51 8
+a58 10
+		dumy_size=((int)file_localp->f_pos) % 32;
+
+		k = dumy_size2=(dumy_size/4);
+
+		dumy_size2= dumy_size2 % 4;
+		if((dumy_size2>0) && (dumy_size2<4))
+		{
+			k=k+1;
+			
+			printk(KERN_INFO "______________++ k= %d",k);
+d60 6
+a66 1
+		
+d69 2
+a70 2
+			printk(KERN_INFO "copy to user going ONCE");
+                ur  = copy_to_user( (ubuff+csr) ,item->data[k]+dumy_size2 , 4-dumy_size2 );
+@
+
+
+1.10
+log
+@*** empty log message ***
+@
+text
+@a57 1
+		item->data[k];
+d61 1
+@
+
+
+1.9
+log
+@*** empty log message ***
+@
+text
+@a16 1
+       	char *byt;
+a17 2
+
+	byt=NULL;
+a22 1
+	byt=(char*)kmalloc(sizeof(char)*regSize, GFP_KERNEL);
+d58 1
+a58 1
+		byt=item->data[k];
+d62 1
+a62 1
+                ur  = copy_to_user( (ubuff+csr) , &byt[dumy_size2] /*item->data[k]*/ , 4-dumy_size2 );
+d67 1
+a67 1
+                printk(KERN_INFO " success read :  .......... read : %s\n", (ubuff+csr));
+d73 1
+a73 1
+                printk(KERN_INFO " success read : %d ",csr /* no_of_char_successfully_read*/);
+@
+
+
+1.8
+log
+@*** empty log message ***
+@
+text
+@d16 5
+a20 1
+        
+d26 3
+a28 1
+        localDev=(Dev*)file_localp->private_data;
+d62 2
+a63 1
+		item->data[k];
+d66 1
+a66 1
+                ur  = copy_to_user( (ubuff+csr) , item->data[k] , 4-dumy_size2 );
+@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@d51 2
+a53 1
+			k=k+1;
+d64 1
+d70 1
+a70 1
+                printk(KERN_INFO " success read : %d \n",csr /* no_of_char_successfully_read*/);
+d92 1
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@d41 1
+d51 1
+d68 1
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d9 1
+a9 1
+        int i=0;
+d24 1
+d35 33
+a67 1
+	}
+a68 1
+                item = localDev->first;
+d82 1
+a82 1
+                        ur /*no_of_unsuccess_read*/ = copy_to_user( (ubuff+csr) , item->data[i] , ctr /*no_of_char_to_read*/);
+d104 1
+a104 1
+       
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d56 1
+a56 1
+                        csr/*no_of_char_successfully_read*/ =csr /* no_of_char_successfully_read*/ + ( ctr /*no_of_char_to_read*/ - ur /*no_of_unsuccess_read*/ );
+d73 2
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d18 3
+d74 2
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d31 1
+a31 2
+
+                }
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d7 69
+a75 2
+	printk(KERN_INFO "START: #%s #%s \n",__FILE__,__func__);
+	printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+a76 1
+return 0;
+@

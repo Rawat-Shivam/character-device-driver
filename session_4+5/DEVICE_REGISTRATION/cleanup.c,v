@@ -1,0 +1,188 @@
+head	1.8;
+access;
+symbols;
+locks
+	rawat:1.8; strict;
+comment	@ * @;
+
+
+1.8
+date	2020.01.09.12.26.32;	author rawat;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2020.01.09.12.23.20;	author rawat;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2020.01.09.06.27.29;	author rawat;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2020.01.09.06.24.22;	author rawat;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2020.01.09.06.20.59;	author rawat;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2020.01.09.06.16.57;	author rawat;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2020.01.09.06.09.09;	author rawat;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2020.01.07.08.47.39;	author rawat;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.8
+log
+@*** empty log message ***
+@
+text
+@#include"headers.h"
+#include"declarations.h"
+
+
+static void __exit exit_func(void)
+{
+	printk(KERN_INFO "START: #%s #%s \n",__FILE__,__func__);
+	int i;	
+	kfree(dev);
+	for(i=0; i< nod ; i++)
+	{	
+	
+		cdev_del(&dev[i].c_dev);
+	}
+	unregister_chrdev_region(device_id,nod);
+//	unregister_chrdev(major_No,"CDD__005");
+	
+	printk(KERN_INFO "bye...         KERNEL\n");
+	printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+}
+
+module_exit(exit_func);
+@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@d8 1
+a8 1
+	
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@a4 1
+int b,a;
+d9 6
+a15 6
+	
+
+	printk(KERN_INFO "bye....1	KERNEL\n");
+	
+	printk(KERN_INFO " major_No= %d \n", major_No);
+	printk(KERN_INFO " minor_No= %d \n", minor_No);
+a16 8
+//
+
+	printk(KERN_INFO "bye....2       KERNEL\n");
+	b=MAJOR(device_id);
+	a=MINOR(device_id);
+	
+	printk(KERN_INFO " major_No= %d \n", major_No);
+	printk(KERN_INFO " minor_No= %d \n", minor_No);
+d18 1
+a18 1
+	printk(KERN_INFO "bye...3         KERNEL\n");
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d5 1
+d21 2
+a22 2
+	major_No=MAJOR(device_id);
+	minor_No=MINOR(device_id);
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d10 1
+d12 2
+d15 8
+d24 1
+a24 1
+//	unregister_chrdev(major_No,"CDD__005");
+d26 1
+a26 1
+	printk(KERN_INFO "bye.... KERNEL\n");
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d11 2
+a12 2
+//	printk(KERN_INFO " major_No= %d \n", major_No);
+//	printk(KERN_INFO " major_No= %d \n", major_No);
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d2 2
+a3 2
+//#include"declarations.h"
+//int major_No;
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d9 6
+a15 2
+	unregister_chrdev(major_No,"CDD__005");
+	
+@

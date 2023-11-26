@@ -1,0 +1,52 @@
+head	1.2;
+access;
+symbols;
+locks
+	rawat:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2020.01.11.07.06.08;	author rawat;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2020.01.11.06.07.07;	author rawat;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@#include"headers.h"
+#include"declarations.h"
+
+
+int releaseMyDev (struct inode *inode_p, struct file *file_p)
+{
+	printk(KERN_INFO "START: #%s #%s \n",__FILE__,__func__);
+	printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+
+return 0;
+}
+
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d5 1
+a5 1
+int releaseMyDev (struct inode *inode_p, struct file *file_p);
+@

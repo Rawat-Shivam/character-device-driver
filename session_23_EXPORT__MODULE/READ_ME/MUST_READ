@@ -1,0 +1,24 @@
+the concept of exporting module is to make our 
+own kernel modules (like printk , copy_from_user)
+
+
+
+
+so we will export them using: EXPORT_MODULE( funcName)
+in the init file global space
+
+so when our driver is inserted using insmode it will also export this module inside the kernel
+and it will become the part of the kernel.
+
+and make the function declaration in declaration.h
+void funcName(void); 
+
+
+and make a file for this function and put its defination in it.
+void funcName(void) 
+{
+
+}
+
+
+now we can call this function anywhere and write any logic inside it .

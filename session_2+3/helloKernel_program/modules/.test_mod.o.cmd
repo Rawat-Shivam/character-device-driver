@@ -1,0 +1,1 @@
+cmd_/home/rawat/C_D_D/Original_Classes/session_2+3/helloKernel_program/test_mod.o := ld -m elf_x86_64 -z max-page-size=0x200000   -r -o /home/rawat/C_D_D/Original_Classes/session_2+3/helloKernel_program/test_mod.o /home/rawat/C_D_D/Original_Classes/session_2+3/helloKernel_program/init.o /home/rawat/C_D_D/Original_Classes/session_2+3/helloKernel_program/cleanup.o 

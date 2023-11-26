@@ -1,0 +1,165 @@
+head	1.4;
+access;
+symbols;
+locks
+	rawat:1.4; strict;
+comment	@ * @;
+
+
+1.4
+date	2020.01.30.06.17.49;	author rawat;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2020.01.30.05.35.49;	author rawat;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2020.01.28.10.17.53;	author rawat;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2020.01.28.09.16.00;	author rawat;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@#include"headers.h"
+#include"declarations.h"
+
+//	loff_t (*llseek) (struct file *, loff_t, int);
+loff_t lseekDev (struct file *file_localp , loff_t size, int origin )
+{
+	loff_t ret;
+	printk(KERN_INFO "%s: BEGIN \n",__func__);
+	
+	
+	printk(KERN_INFO "FILE_POSITION = %d \n",(int)file_localp->f_pos);
+	printk(KERN_INFO "loff = %d \n",(int)size);
+
+
+	switch(origin)
+	{
+		case SEEK_SET:
+				printk(KERN_INFO "SEEK_SET: BEGIN \n");
+				
+				if( size > dataSize )
+				{
+		                        printk(KERN_ERR "ERROR: SEEK_SET failure\n ");
+		                        goto OUT;
+				}
+				file_localp->f_pos = size;
+
+					
+				printk(KERN_INFO "SEEK_SET: END \n");
+				
+				break;
+		case SEEK_CUR:
+				printk(KERN_INFO "SEEK_CUR: BEGIN \n");
+				
+				if( (( file_localp->f_pos + size )  < 0 ) && (( file_localp->f_pos + size ) > dataSize ))
+				{
+		                        printk(KERN_ERR "ERROR: SEEK_CUR failure\n ");
+		                        goto OUT;
+				}	
+				
+				
+				file_localp->f_pos += size;
+					
+				printk(KERN_INFO "SEEK_CUR: END \n");
+				
+
+				break;
+		case SEEK_END:
+				printk(KERN_INFO "SEEK_END: BEGIN \n");
+				
+				if( (size > dataSize) || (size < 0) )
+				{
+		                        printk(KERN_ERR "ERROR: SEEK_END failure\n ");
+		                        goto OUT;
+				}
+				file_localp->f_pos = dataSize - size;
+				
+				printk(KERN_INFO "FILE_POSITION = %d \n",(int)file_localp->f_pos);
+					
+				printk(KERN_INFO "SEEK_END: END \n");
+
+				break;
+				
+		default:
+			printk("___ invalid flag ___  \n");
+	
+	}
+	printk(KERN_INFO "FILE_POSITION = %d \n",(int)file_localp->f_pos);
+	ret=(loff_t)file_localp->f_pos;
+	printk(KERN_INFO "%s: END \n",__func__);
+
+return ret;
+
+OUT:
+        {
+                printk(KERN_INFO "END: #%s #%s \n",__FILE__,__func__);
+                return -1;
+        }
+
+}
+
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d7 1
+d68 1
+a68 1
+	
+d71 1
+a71 1
+return (int)file_localp->f_pos;
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d55 2
+d70 1
+a70 1
+return 0;
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d11 14
+a24 3
+	//printk(KERN_INFO "lofset = %d \n",*(int*)lofset);
+	
+	
+d26 18
+d45 12
+d58 6
+a64 1
+	//printk(KERN_INFO "lofset = %d \n",*(int*)lofset);
+d69 7
+@

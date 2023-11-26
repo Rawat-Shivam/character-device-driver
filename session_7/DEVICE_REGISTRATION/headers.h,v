@@ -1,0 +1,151 @@
+head	1.6;
+access;
+symbols;
+locks
+	rawat:1.6; strict;
+comment	@ * @;
+
+
+1.6
+date	2020.01.11.06.07.03;	author rawat;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2020.01.09.12.23.20;	author rawat;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2020.01.09.06.15.35;	author rawat;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2020.01.09.06.13.37;	author rawat;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2020.01.09.06.09.08;	author rawat;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2020.01.07.08.47.38;	author rawat;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@#include<linux/init.h>
+#include<linux/fs.h>
+#include<linux/cdev.h>
+#include<linux/slab.h>
+#include<linux/moduleparam.h>
+#include<linux/module.h>
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("__RAWAT_SHIVAM__");
+MODULE_DESCRIPTION("__character_device_driver_for_SCULL__");
+
+//this NOD=0  macro was used earlier to to have pre-user-defined no_of_devices
+//but not used now since we are have no_of_devices as module_parameters(during runtime)
+#ifndef NOD
+#define NOD 
+#endif
+
+#ifndef MINOR_NO
+#define MINOR_NO 0
+#endif
+
+#ifndef DEVICE_NAME
+#define DEVICE_NAME "CDD__005"  
+#endif
+
+#ifndef DEBUG
+#define DEBUG
+#endif
+
+#ifndef DEVSIZE
+#define DEVSIZE 0
+#endif
+
+#ifndef DATASIZE
+#define DATASIZE 256
+#endif
+
+#ifndef REGSIZE
+#define REGSIZE 4
+#endif
+
+#ifndef NOOFREG
+#define NOOFREG 8
+#endif
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d9 1
+a9 1
+MODULE_AUTHOR("__RAWAT__");
+d12 2
+d24 20
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d3 3
+d13 1
+a13 1
+#define NOD 1
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d18 1
+a18 1
+#define DEVEICE_NAME "CDD__005"  
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d10 1
+a10 1
+#define NOd 1
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d5 15
+a19 1
+extern int major_No;
+@
